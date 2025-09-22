@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Study Planner — Local</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header>
+    <h1>Study Planner</h1>
+    <p>Plan sessions, set due time, and track progress</p>
+  </header>
+
+  <main class="container">
+    <section class="left">
+      <form id="taskForm">
+        <input id="title" placeholder="Task title" required />
+        <textarea id="notes" placeholder="Notes"></textarea>
+        <div class="row">
+          <input id="date" type="date" required />
+          <input id="time" type="time" />
+        </div>
+        <div class="row">
+          <select id="priority" required>
+            <option value="none"selected>Select priority</option>
+            <option value="low">Low priority</option>
+            <option value="medium">Medium priority</option>
+            <option value="high">High priority</option>
+          </select>
+          <button id="saveBtn" type="submit">Add Task</button>
+        </div>
+      </form>
+
+      <div class="controls">
+        <button id="clearCompleted">Clear completed</button>
+        <button id="exportJSON">Export JSON</button>
+        <button id="importJSON">Import JSON</button>
+        <input id="importFile" type="file" accept="application/json" style="display:none"/>
+      </div>
+
+      <div class="progress">
+        <label>Progress</label>
+        <div class="progress-bar">
+          <div id="progressFill"></div>
+        </div>
+        <small id="progressText">0 / 0 done</small>
+      </div>
+    </section>
+
+    <section class="right">
+      <h2>Tasks Timeline</h2>
+      <ul id="taskList" class="task-list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <small>Saved to browser <code>study_planner_tasks</code></small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
